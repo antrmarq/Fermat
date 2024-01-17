@@ -13,10 +13,6 @@ def prime_test(N, k):
 # else:
 # return x*z^2 mod N
 def mod_exp(x, y, N): 
-	print("mod_exp")
-	print("x", x)
-	print("y", y)
-	print("N", N)
 	if y == 0:
 		return 1
 	z = mod_exp(x, y//2, N)
@@ -40,12 +36,16 @@ def mprobability(k):
 # random.randint(low,hi) which gives a random integer between low and
 # hi, inclusive.
 def fermat(N,k):
-	print("fermat")
-	print("N", N)
-	print("k", k)
+	if N == 1:
+		return 'composite'
+	if N == 2:
+		return 'prime'
+	if(N == 3):
+		return 'prime'
+	if N % 2 == 0:
+		return 'composite'
 	for i in range(0, k):
 		a = random.randint(2, N-1)
-		print("a", a)
 		if mod_exp(a, N-1, N) != 1:
 			return 'composite'
 	return 'prime'
@@ -74,9 +74,14 @@ def fermat(N,k):
 #         return “composite”
 # return “probably prime”
 def miller_rabin(N,k):
-	print("miller_rabin")
-	print("N", N)
-	print("k", k)
+	if N == 1:
+		return 'composite'
+	if N == 2:
+		return 'prime'
+	if(N == 3):
+		return 'prime'
+	if N % 2 == 0:
+		return 'composite'
 	s = 0
 	d = N - 1
 	while d % 2 == 0:
@@ -95,3 +100,21 @@ def miller_rabin(N,k):
 		if y != 1:
 			return 'composite'
 	return 'prime'
+	# s = 0
+	# d = N - 1
+	# while d % 2 == 0:
+	# 	s += 1
+	# 	d = d // 2
+	# for i in range(0, k):
+	# 	a = random.randint(2, N-2)
+	# 	x = mod_exp(a, d, N)
+	# 	if x == 1 or x == N - 1:
+	# 		continue
+	# 	for j in range(0, s):
+	# 		y = mod_exp(x, 2, N)
+	# 		if y == 1 and x != 1 and x != N - 1:
+	# 			return 'composite'
+	# 		x = y
+	# 	if y != 1:
+	# 		return 'composite'
+	# return 'prime'
