@@ -100,21 +100,3 @@ def miller_rabin(N,k):
 		if y != 1:
 			return 'composite'
 	return 'prime'
-	# s = 0
-	# d = N - 1
-	# while d % 2 == 0:
-	# 	s += 1
-	# 	d = d // 2
-	# for i in range(0, k):
-	# 	a = random.randint(2, N-2)
-	# 	x = mod_exp(a, d, N)
-	# 	if x == 1 or x == N - 1:
-	# 		continue
-	# 	for j in range(0, s):
-	# 		y = mod_exp(x, 2, N)
-	# 		if y == 1 and x != 1 and x != N - 1:
-	# 			return 'composite'
-	# 		x = y
-	# 	if y != 1:
-	# 		return 'composite'
-	# return 'prime'
