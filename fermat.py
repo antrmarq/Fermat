@@ -20,7 +20,7 @@ def mod_exp(x, y, N):
 		return z*z % N
 	else:
 		return x*z*z % N	
-	
+# The time complexity of the mod_exp function is O(logn) because the function is called recursively logn times. The space complexity is O(logn) because the function is called recursively logn times.
 # You will need to implement this function and change the return value.   
 def fprobability(k):
     return 1/(2**k)
@@ -49,6 +49,8 @@ def fermat(N,k):
 		if mod_exp(a, N-1, N) != 1:
 			return 'composite'
 	return 'prime'
+#the time complexity of the fermat function is O(klogn) because the outer loop runs k times and the inner loop runs logn times. The space complexity is O(1) because the only variable that is stored is a, which is an integer.
+#the issue with the accuracy of the fermat test is that it is not a strong test. It is possible for a composite number to pass the fermat test. For example, 561 is a composite number that passes the fermat test. This is because 561 is a Carmichael number, which is a composite number that passes the fermat test for all bases a coprime to n. The probability of a composite number passing the fermat test is 1/2^k, where k is the number of trials. This means that the probability of a composite number passing the fermat test decreases as k increases. However, the probability of a composite number passing the fermat test is never 0, so the fermat test is not a strong test.
 
 # You will need to implement this function and change the return value, which should be
 # either 'prime' or 'composite'.
@@ -100,3 +102,5 @@ def miller_rabin(N,k):
 		if y != 1:
 			return 'composite'
 	return 'prime'
+#the time complexity of the miller_rabin function is O(klog^2n) because the outer loop runs k times and the inner loop runs log^2n times. The space complexity is O(1) because the only variables that are stored are s and d, which are both integers.
+# the miller-rabin test is a strong test because it is impossible for a composite number to pass the test. This is because the miller-rabin test is based on the fact that if n is a composite number, then there exists a nontrivial square root of 1 modulo n. The probability of a composite number passing the miller-rabin test is 4^(-k), where k is the number of trials. This means that the probability of a composite number passing the miller-rabin test decreases as k increases. However, the probability of a composite number passing the miller-rabin test is never 0, so the miller-rabin test is not a perfect test.
